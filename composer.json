@@ -1,0 +1,19 @@
+{
+    "name": "runcommand/query-debug",
+    "description": "Debug WP_Query on any page",
+    "license": "MIT",
+    "authors": [],
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [ "command.php" ]
+    },
+    "require": {},
+    "require-dev": {
+        "behat/behat": "~2.5"
+    },
+    "extras": {
+      "commands": [
+        "query-debug"
+      ]
+    }
+}
