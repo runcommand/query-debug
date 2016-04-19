@@ -16,6 +16,9 @@ class Query_Debug_Command {
 	 *
 	 * ## OPTIONS
 	 *
+	 * [--url=<url>]
+	 * : Execute a request against a specified URL. Defaults to 'domain.com/'
+	 *
 	 * [--format=<format>]
 	 * : Render results in a specific format.
 	 * ---

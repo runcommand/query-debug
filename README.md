@@ -10,7 +10,7 @@ Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contr
 
 
 ~~~
-wp query-debug [--format=<format>]
+wp query-debug [--url=<url>] [--format=<format>]
 ~~~
 
 Executes a request to WordPress to identify which queries are run, and
@@ -23,6 +23,9 @@ Loading http://wordpress-develop.dev/2016/04/14/hello-world/ executed 28 queries
 ```
 
 **OPTIONS**
+
+	[--url=<url>]
+		Execute a request against a specified URL. Defaults to 'domain.com/'
 
 	[--format=<format>]
 		Render results in a specific format.
