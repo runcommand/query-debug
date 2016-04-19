@@ -17,6 +17,11 @@ Executes a request to WordPress to identify which queries are run, and
 how long they took. Useful for taking a peek into which pages might be
 having performance issues.
 
+```
+$ wp query-debug --url=http://wordpress-develop.dev/2016/04/14/hello-world/ --format=summary
+Loading http://wordpress-develop.dev/2016/04/14/hello-world/ executed 28 queries in 0.006749 seconds.
+```
+
 **OPTIONS**
 
 	[--format=<format>]
@@ -25,9 +30,10 @@ having performance issues.
 		default: table
 		options:
 		  - table
+		  - summary # Summary including number of queries and total time.
 		  - json
 		  - yaml
-		  - count
+		  - count # Total number of queries.
 		---
 
 
