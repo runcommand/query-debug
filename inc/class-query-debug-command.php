@@ -3,10 +3,11 @@
 class Query_Debug_Command {
 
 	/**
-	 * Execute a request to WordPress and identify queries performed.
+	 * Find the query causing your performance issues.
 	 *
-	 * Useful for taking a peek into which pages might be having performance
-	 * issues.
+	 * Executes a request to WordPress to identify which queries are run, and
+	 * how long they took. Useful for taking a peek into which pages might be
+	 * having performance issues.
 	 *
 	 * ## OPTIONS
 	 *

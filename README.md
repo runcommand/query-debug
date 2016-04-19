@@ -1,7 +1,7 @@
 runcommand/query-debug
 ======================
 
-Debug WP_Query on any page
+Find the query causing your performance issues.
 
 
 Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing)
@@ -13,8 +13,9 @@ Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contr
 wp query-debug [--format=<format>]
 ~~~
 
-Useful for taking a peek into which pages might be having performance
-issues.
+Executes a request to WordPress to identify which queries are run, and
+how long they took. Useful for taking a peek into which pages might be
+having performance issues.
 
 **OPTIONS**
 

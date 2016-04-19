@@ -1,6 +1,6 @@
 {
     "name": "runcommand/query-debug",
-    "description": "Debug WP_Query on any page",
+    "description": "Find the query causing your performance issues.",
     "license": "MIT",
     "authors": [],
     "minimum-stability": "dev",
