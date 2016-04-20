@@ -40,17 +40,7 @@ class Query_Debug_Command {
 			define( 'SAVEQUERIES', true );
 		}
 
-		WP_CLI::get_runner()->load_wordpress();
-
-		// Set up the main WordPress query.
-		wp();
-
-		define( 'WP_USE_THEMES', true );
-
-		// Load the theme template.
-		ob_start();
-		require_once( ABSPATH . WPINC . '/template-loader.php' );
-		ob_get_clean();
+		$this->load_wordpress();
 
 		if ( 'count' === $assoc_args['format'] ) {
 			WP_CLI::log( count( $wpdb->queries ) );
@@ -67,9 +57,11 @@ class Query_Debug_Command {
 			WP_CLI::log( "Loading {$url} executed {$query_count} queries in {$query_total_time} seconds." );
 		} else {
 			$items = array_map( function( $query ){
+				$backtrace_bits = explode( ', ', $query[2] );
+				$settings_key = array_search( 'Query_Debug_Command->load_wordpress', $backtrace_bits );
 				return array(
 					'seconds'     => round( $query[1], 6 ),
-					'backtrace'   => implode( ', ', array_slice( explode( ', ', $query[2] ), 12 ) ),
+					'backtrace'   => implode( ', ', array_slice( $backtrace_bits, $settings_key + 1 ) ),
 					'query'       => $query[0],
 				);
 
@@ -78,5 +70,21 @@ class Query_Debug_Command {
 		}
 	}
 
+	/**
+	 * Runs through the entirety of the WP bootstrap process
+	 */
+	private function load_wordpress() {
+		WP_CLI::get_runner()->load_wordpress();
+
+		// Set up the main WordPress query.
+		wp();
+
+		define( 'WP_USE_THEMES', true );
+
+		// Load the theme template.
+		ob_start();
+		require_once( ABSPATH . WPINC . '/template-loader.php' );
+		ob_get_clean();
+	}
 
 }
