@@ -3,6 +3,7 @@ runcommand/query-debug
 
 Find the query causing your performance issues.
 
+[![Build Status](https://travis-ci.org/runcommand/query-debug.svg?branch=master)](https://travis-ci.org/runcommand/query-debug)
 
 Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing)
 
