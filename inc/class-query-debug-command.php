@@ -81,6 +81,11 @@ class Query_Debug_Command {
 
 		define( 'WP_USE_THEMES', true );
 
+		add_filter( 'template_include', function( $template ) {
+			WP_CLI::debug( "Rendering template: {$template}", 'query-debug' );
+			return $template;
+		});
+
 		// Load the theme template.
 		ob_start();
 		require_once( ABSPATH . WPINC . '/template-loader.php' );
