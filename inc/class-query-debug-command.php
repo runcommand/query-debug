@@ -40,7 +40,7 @@ class Query_Debug_Command {
 			define( 'SAVEQUERIES', true );
 		}
 
-		$this->load_wordpress();
+		$this->load_wordpress_with_template();
 
 		if ( 'count' === $assoc_args['format'] ) {
 			WP_CLI::log( count( $wpdb->queries ) );
@@ -58,7 +58,7 @@ class Query_Debug_Command {
 		} else {
 			$items = array_map( function( $query ){
 				$backtrace_bits = explode( ', ', $query[2] );
-				$settings_key = array_search( 'Query_Debug_Command->load_wordpress', $backtrace_bits );
+				$settings_key = array_search( 'Query_Debug_Command->load_wordpress_with_template', $backtrace_bits );
 				return array(
 					'seconds'     => round( $query[1], 6 ),
 					'backtrace'   => implode( ', ', array_slice( $backtrace_bits, $settings_key + 1 ) ),
@@ -73,7 +73,7 @@ class Query_Debug_Command {
 	/**
 	 * Runs through the entirety of the WP bootstrap process
 	 */
-	private function load_wordpress() {
+	private function load_wordpress_with_template() {
 		WP_CLI::get_runner()->load_wordpress();
 
 		// Set up the main WordPress query.
