@@ -47,7 +47,6 @@ class Query_Debug_Command {
 		} else if ( 'summary' === $assoc_args['format'] ) {
 			$query_count = count( $wpdb->queries );
 			$query_total_time = 0;
-			$query_total_time = 0;
 			foreach( $wpdb->queries as $query ) {
 				$query_total_time += $query[1];
 			}
