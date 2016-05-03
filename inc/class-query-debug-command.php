@@ -22,10 +22,10 @@ class Query_Debug_Command {
 	 * [--format=<format>]
 	 * : Render results in a specific format.
 	 * ---
-	 * default: table
+	 * default: summary
 	 * options:
-	 *   - table
 	 *   - summary # Summary including number of queries and total time.
+	 *   - table # List of all queries.
 	 *   - json
 	 *   - yaml
 	 *   - count # Total number of queries.
@@ -53,7 +53,7 @@ class Query_Debug_Command {
 			$query_total_time = round( $query_total_time, 6 );
 			$uri = ! empty( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '/';
 			$url = home_url( $uri );
-			WP_CLI::log( "Loading {$url} executed {$query_count} queries in {$query_total_time} seconds." );
+			WP_CLI::log( "Loading {$url} executed {$query_count} queries in {$query_total_time} seconds. Use --format=table to see the full list." );
 		} else {
 			$items = array_map( function( $query ){
 				$backtrace_bits = explode( ', ', $query[2] );
