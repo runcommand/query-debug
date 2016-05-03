@@ -31,10 +31,10 @@ Loading http://wordpress-develop.dev/2016/04/14/hello-world/ executed 28 queries
 	[--format=<format>]
 		Render results in a specific format.
 		---
-		default: table
+		default: summary
 		options:
-		  - table
 		  - summary # Summary including number of queries and total time.
+		  - table # List of all queries.
 		  - json
 		  - yaml
 		  - count # Total number of queries.
