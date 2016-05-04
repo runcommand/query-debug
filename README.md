@@ -19,14 +19,22 @@ how long they took. Useful for taking a peek into which pages might be
 having performance issues.
 
 ```
-$ wp query-debug --url=http://wordpress-develop.dev/2016/04/14/hello-world/ --format=summary
-Loading http://wordpress-develop.dev/2016/04/14/hello-world/ executed 28 queries in 0.006749 seconds.
+$ wp query-debug --url=http://wp.dev/2016/04/14/hello-world/ --format=summary
+Loading http://wp.dev/2016/04/14/hello-world/ executed 28 queries in 0.006749 seconds.
+```
+
+Use the `--debug` flag to inspect the main query and rendered theme template:
+
+```
+$ wp query-debug --url=http://wp.dev/2016/04/14/hello-world/ --debug
+Debug (query-debug): Main WP_Query: is_single, is_singular
+Debug (query-debug): Theme template: twentyfifteen/single.php
 ```
 
 **OPTIONS**
 
 	[--url=<url>]
-		Execute a request against a specified URL. Defaults to 'domain.com/'
+		Execute a request against a specified URL. Default to the home URL.
 
 	[--format=<format>]
 		Render results in a specific format.
