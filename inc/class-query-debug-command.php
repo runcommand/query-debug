@@ -118,6 +118,11 @@ class Query_Debug_Command {
 			return $template;
 		}, 999 );
 
+		// Template is normally loaded in global scope, so we need to replicate
+		foreach( $GLOBALS as $key => $value ) {
+			global $$key;
+		}
+
 		// Load the theme template.
 		ob_start();
 		require_once( ABSPATH . WPINC . '/template-loader.php' );
