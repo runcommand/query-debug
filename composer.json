@@ -1,6 +1,7 @@
 {
     "name": "runcommand/query-debug",
     "description": "Find the query causing your performance issues.",
+    "type": "wp-cli-package",
     "homepage": "https://runcommand.io/wp/query-debug/",
     "license": "MIT",
     "authors": [
